@@ -1,0 +1,436 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #444; /* Darker text for better readability */
+    background-color: #f0f4f8; /* Soft background color */
+}
+
+/* Container for consistent spacing */
+.container {
+    width: 90%; /* Increased container width for better spacing */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background: #1e1006; /* Soft blue color */
+    color: #eb1313;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 25px; /* Increased margin for spacing */
+}
+
+nav ul li a {
+    color: rgb(250, 245, 245);
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #f40606; /* Underline color */
+    transition: width 0.3s, opacity 0.3s;
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    opacity: 0;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    opacity: 1;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    background: linear-gradient(135deg, #5d5dbe, #618e32); /* Gradient background */
+    color: white;
+    padding: 80px 0; /* Increased padding */
+    animation: fadeIn 1s ease-in;
+}
+
+.hero h1 {
+    font-size: 2.8rem; /* Slightly larger font size */
+    margin-bottom: 15px;
+    animation: slideIn 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.3rem; /* Slightly larger font size */
+    margin-bottom: 25px;
+    animation: fadeIn 1s ease-in-out 0.5s; /* Delay for a staggered effect */
+}
+
+.btn {
+    background: #0c0c0c; /* Green color */
+    color: white;
+    padding: 12px 25px; /* Increased padding */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background: #04fb00; /* Darker green */
+    transform: translateY(-3px);
+}
+
+/* General Box Styles */
+.box {
+    background: white; /* Default background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    padding: 20px; /* Consistent padding */
+    margin: 20px 0; /* Vertical margin for spacing */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effects */
+}
+
+.box:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+/* Recommendation Section Styles */
+.recommendation {
+    background: linear-gradient(135deg, #F7F9FC, #E0E7FF); /* Soft gradient background */
+    padding: 40px 20px; /* Padding around the section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+}
+
+/* Recommendation Title and Description */
+.recommendation h2 {
+    text-align: center; /* Center align the title */
+    color: #4A90E2; /* Title color */
+    font-family: 'Arial', sans-serif; /* Modern font */
+    font-size: 2rem; /* Larger title size */
+    margin-bottom: 15px; /* Space below title */
+}
+
+.recommendation p {
+    text-align: center; /* Center align the description */
+    margin-bottom: 30px; /* Space below description */
+    font-size: 1.2rem; /* Font size for description */
+    color: #555; /* Dark gray color for text */
+}
+
+/* Recommendation Input Styles */
+.recommendation-input {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center items horizontally */
+    margin: 20px 0; /* Space above and below */
+}
+
+.recommendation-input input {
+    padding: 12px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px; /* Space between input and button */
+    flex: 1; /* Take available space */
+    transition: border 0.3s; /* Transition for focus effect */
+}
+
+.recommendation-input input:focus {
+    border: 1px solid #4A90E2; /* Focus border color */
+}
+
+.recommendation-input button {
+    padding: 12px 25px; /* Increased padding */
+    border: none;
+    background: #4A90E2; /* Button color */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s; /* Transition for hover effects */
+}
+
+.recommendation-input button:hover {
+    background: #357ABD; /* Darker blue on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Output List Styles */
+.output-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin-top: 20px; /* Space above the list */
+    max-width: 600px; /* Max width for the list */
+    margin-left: auto; /* Center align */
+    margin-right: auto; /* Center align */
+    background: #F7F9FC; /* Light background */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.output-list li {
+    padding: 15px; /* Padding for each list item */
+    border-bottom: 1px solid #E0E0E0; /* Bottom border for separation */
+    color: #333; /* Dark text color */
+    transition: background 0.3s; /* Transition for hover effect */
+}
+
+.output-list li:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+.output-list li:hover {
+    background: #E0E7FF; /* Light blue background on hover */
+}
+
+/* Feature Item Styles */
+.feature-item {
+    flex: 1 1 30%; /* Three columns */
+    margin: 10px;
+    background: linear-gradient(135deg, #E6F2FF, #B3D7FF); /* Light gradient background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+    padding: 20px; /* Consistent padding */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effects */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start off lower */
+    animation: fadeInUp 0.5s forwards; /* Animation for entrance */
+    position: relative; /* For positioning elements */
+}
+
+/* Feature Title Styles */
+.feature-item h3 {
+    margin-bottom: 10px;
+    color: #4A90E2; /* Feature title color */
+    font-size: 1.5rem; /* Increased font size */
+    text-align: center; /* Center align titles */
+}
+
+/* Feature Description Styles */
+.feature-item p {
+    margin-bottom: 20px;
+    font-size: 1rem; /* Font size for descriptions */
+    text-align: center; /* Center align text */
+}
+
+/* Interactive Demo and Feedback Sections */
+.interactive-demo,
+.feedback-form,
+.interactive-quiz {
+    background: #E7F3FF; /* Light background for demo and feedback sections */
+    border-radius: 8px; /* Slightly rounded corners */
+    padding: 15px; /* Padding for these sections */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin-top: 15px; /* Space above sections */
+}
+
+/* Input and Button Styles for Interactive Sections */
+.interactive-demo input,
+.feedback-form textarea,
+.interactive-quiz input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #A3C7E5; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 10px; /* Space below inputs */
+    transition: border 0.3s;
+}
+
+.interactive-demo input:focus,
+.feedback-form textarea:focus,
+.interactive-quiz input:focus {
+    border: 1px solid #4A90E2; /* Focus border color */
+}
+
+/* Button Styles for Demo and Feedback Sections */
+.interactive-demo button,
+.feedback-form button,
+.interactive-quiz button {
+    padding: 10px 20px; /* Padding for buttons */
+    border: none;
+    background: #4A90E2; /* Button color */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    width: 100%; /* Full width buttons */
+}
+
+.interactive-demo button:hover,
+.feedback-form button:hover,
+.interactive-quiz button:hover {
+    background: #357ABD; /* Darker blue */
+    transform: translateY(-3px);
+}
+
+/* Quiz Question Styles */
+.interactive-quiz p {
+    margin-bottom: 10px; /* Space below question */
+    font-weight: bold; /* Bold question text */
+    text-align: center; /* Center align text */
+}
+
+/* Adjusting the height for improved visibility */
+.interactive-demo, 
+.feedback-form, 
+.interactive-quiz {
+    min-height: 120px; /* Minimum height for these sections */
+}
+
+
+/* About Section Styles */
+.about {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 40px; /* Padding around the section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.about h2 {
+    font-size: 2.5rem; /* Size for the main heading */
+    color: #333; /* Dark text color */
+    text-align: center; /* Center align the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.about ol {
+    margin-left: 20px; /* Indent the ordered list */
+    counter-reset: list-counter; /* Reset the counter */
+}
+
+.about ol li {
+    margin-bottom: 20px; /* Space between list items */
+    font-size: 1.1rem; /* Slightly larger font for list items */
+    color: #555; /* Medium text color */
+    position: relative; /* For custom list styling */
+}
+
+.about ol li::marker {
+    color: #4A90E2; /* Custom color for list markers */
+    font-weight: bold; /* Make markers bold */
+}
+
+.about ul {
+    margin-top: 10px; /* Space above the unordered list */
+    margin-left: 20px; /* Indent the unordered list */
+    list-style-type: disc; /* Disc markers for unordered list */
+}
+
+.about ul li {
+    margin-bottom: 10px; /* Space between unordered list items */
+    font-size: 1rem; /* Font size for sub-items */
+    color: #444; /* Darker color for sub-items */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about h2 {
+        font-size: 2rem; /* Adjust heading size for smaller screens */
+    }
+
+    .about ol li {
+        font-size: 1rem; /* Adjust list item font size */
+    }
+}
+
+
+/* Contact Us Section */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px; /* Increased padding */
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    border: 1px solid #4A90E2; /* Focus border color */
+}
+
+.contact button {
+    padding: 12px 25px; /* Increased padding */
+    border: none;
+    background: #4A90E2; /* Button color */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.contact button:hover {
+    background: #357ABD; /* Darker blue */
+    transform: translateY(-3px);
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #333;
+    color: white;
+    margin-top: 40px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0; /* Start transparent */
+        transform: translateY(20px); /* Start from below */
+    }
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* End in position */
+    }
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart E-Learning Framework</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#recommendation">Get Recommendations</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <h1>Welcome to Smart E-Learning Framework</h1>
+            <p>Empowering Education through AI-Powered Learning Paths</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Recommendation Section -->
+    <section class="recommendation" id="recommendation" aria-labelledby="recommendation-title">
+        <div class="container">
+            <h2 id="recommendation-title">Get Personalized Learning Recommendations</h2>
+            <p>Enter your user ID to receive personalized recommendations using reinforcement learning.</p>
+            
+            <div class="recommendation-input">
+                <input type="text" id="userId" placeholder="Enter User ID" aria-label="User ID">
+                <button onclick="getRecommendations()">Get Recommendations</button>
+            </div>
+            
+            <div id="recommendationResult" class="output-box" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Our Key Features</h2>
+            <div class="feature-list">
+                
+                <!-- Feature 1: Personalized Learning Paths -->
+                <div class="feature-item">
+                    <h3>Personalized Learning Paths</h3>
+                    <p>Our platform uses AI algorithms to generate customized learning paths tailored to your learning needs.</p>
+                    <div class="interactive-demo">
+                        <h4>Try a Demo:</h4>
+                        <input type="text" id="learningGoal" placeholder="Enter your learning goal" aria-label="Learning Goal">
+                        <button onclick="generatePath()">Generate Path</button>
+                        <div id="learningPathResult"></div>
+                    </div>
+                </div>
+                
+                <!-- Feature 2: Real-Time Feedback -->
+                <div class="feature-item">
+                    <h3>Real-Time Feedback</h3>
+                    <p>Receive instant feedback on your progress and identify areas for improvement.</p>
+                    <div class="feedback-form">
+                        <h4>Provide Feedback:</h4>
+                        <textarea id="feedbackInput" placeholder="Share your feedback" aria-label="Feedback"></textarea>
+                        <button onclick="submitFeedback()">Submit Feedback</button>
+                        <div id="feedbackResult"></div>
+                    </div>
+                </div>
+                
+                <!-- Feature 3: Interactive Modules -->
+                <div class="feature-item">
+                    <h3>Interactive Modules</h3>
+                    <p>Engage with our interactive content to make learning more dynamic and effective.</p>
+                    <div class="interactive-quiz">
+                        <h4>Take a Quiz:</h4>
+                        <p>What is the capital of France?</p>
+                        <input type="text" id="quizAnswer" placeholder="Your answer" aria-label="Quiz Answer">
+                        <button onclick="checkAnswer()">Submit Answer</button>
+                        <div id="quizResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <ol>
+                <li>
+                    <strong>Our Vision</strong>
+                    <p>We envision a world where access to quality education is not limited by geography, background, or prior knowledge. By leveraging advanced artificial intelligence and machine learning techniques, we aim to tailor educational experiences that meet the diverse needs of every learner.</p>
+                </li>
+                <li>
+                    <strong>What We Do</strong>
+                    <p>Our platform employs sophisticated reinforcement learning algorithms to analyze user interactions and preferences, enabling us to provide personalized learning pathways. Our goal is to enhance knowledge retention and facilitate skill development in a manner that is both engaging and effective.</p>
+                </li>
+                <li>
+                    <strong>Key Features</strong>
+                    <ul>
+                        <li><strong>Personalized Learning Paths:</strong> Our AI-driven system creates customized learning experiences that adapt to individual learning styles and progress.</li>
+                        <li><strong>Real-Time Feedback:</strong> We provide instantaneous feedback, helping learners understand their strengths and areas for improvement, and keeping them motivated throughout their journey.</li>
+                        <li><strong>Interactive Learning Modules:</strong> Our platform offers dynamic content and interactive exercises that encourage active participation and collaboration.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Commitment to Ethics</strong>
+                    <p>We adhere to the IEEE Code of Ethics, ensuring that our technologies are developed and used responsibly. We are committed to protecting user privacy and promoting fairness in our algorithms, striving to eliminate bias and enhance inclusivity in education.</p>
+                </li>
+                <li>
+                    <strong>Our Team</strong>
+                    <p>Our diverse team comprises experts in education, artificial intelligence, and software development. We are passionate about transforming the educational landscape and continuously seek ways to innovate and improve our offerings.</p>
+                </li>
+                <li>
+                    <strong>Join Us</strong>
+                    <p>Explore the Smart E-Learning Framework and experience how our solutions can facilitate your educational goals. Together, we can harness the power of technology to create a brighter and more equitable future for all learners.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+    
+
+    <!-- Contact Us Section -->
+<!-- Contact Us Section -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <div id="contactResult"></div>
+</section>
+
+<!-- JavaScript -->
+<script>
+    // Handle form submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent actual form submission
+        
+        // Display "Form Submitted" message
+        document.getElementById('contactResult').innerHTML = '<p>Form Submitted! Thank you for reaching out.</p>';
+        
+        // Clear form fields
+        document.getElementById('contact-form').reset();
+    });
+</script>
+
+    
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Smart E-Learning Framework. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
